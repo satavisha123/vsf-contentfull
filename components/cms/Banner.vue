@@ -1,20 +1,27 @@
 <template>
-  <Banner
-    :title="title"
-    :subtitle="subtitle"
-    :description="description"
-    :button-text="banner_text"
-    :link="banner_link"
-    :image="image"
-    :background="background"
-  />
+  <div>
+    {{ component }}
+    <Banner
+      :title="title"
+      :subtitle="subtitle"
+      :description="description"
+      :button-text="banner_text"
+      :link="banner_link"
+      :image="image"
+      :background="background"
+    />
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-
-export default Vue.extend({
+import { SfBanner } from "@storefront-ui/vue";
+export default {
   name: "Banner",
+  components: {
+    SfBanner,
+  },
+
   props: {
     title: {},
     subtitle: {},
@@ -24,5 +31,5 @@ export default Vue.extend({
     image: {},
     background: {},
   },
-});
+};
 </script>
