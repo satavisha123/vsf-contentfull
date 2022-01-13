@@ -2,27 +2,32 @@
   <div>
     <component
       v-for="(component, index) in components"
-      :key="`${component.componentName}-${index}`"
       :is="component.componentName"
+      :key="index"
       v-bind="component.props"
-      class="content-block"
+      class="render-content"
     />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { extractComponents } from "@vsf-enterprise/contentful";
+import Vue from 'vue';
+import { extractComponents } from '@vsf-enterprise/contentful';
+
+interface RenderContent {
+  componentName: string
+  props?: {}
+}
 
 export default Vue.extend({
-  name: "RenderContent",
+  name: 'RenderContent',
   props: {
     content: {
-      type: Array,
+      type: [Array, Object],
     },
   },
   computed: {
-    components() {
+    components(): RenderContent[] {
       return extractComponents(this.content);
     },
   },
