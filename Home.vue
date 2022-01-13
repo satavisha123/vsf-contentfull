@@ -1,12 +1,10 @@
 <template>
   <div>
     <div v-if="loading">Loading content...</div>
-    <div v-if="error">error</div>
-  <div v-if="content">
-
+    <div v-if="error"></div>
+    <div v-if="content">
       <render-content :content="content" />
-  </div>
-  
+    </div>
   </div>
 </template>
 
@@ -19,7 +17,7 @@ import Banner from "~/components/cms/Banner";
 import RenderContent from "~/components/cms/RenderContent.vue";
 
 export default {
-  name:"Home",
+  name: "Home",
   components: {
     RenderContent,
     Banner,
@@ -29,8 +27,8 @@ export default {
     const { search, content, loading, error } = useContent();
     // fetch data
     onSSR(async () => {
-      await search({ id: "2PHdWS1Ud0QPEfXjvjqwB6" });
-    console.log("sata",content.value)
+      await search({ id: "4UKN8dCmik8xpHKAS72vfn" });
+      console.log("sata", content.value);
     });
     // return data
     return {
